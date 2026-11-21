@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#0b0f0f">
+	<meta name="description" content="Explore Wizard Office Services' experience with Microsoft products, SAP, inventory systems, web management, and business technology.">
+	<title>Skills &amp; Projects | Wizard Office Services</title>
+	<style>
+		:root {
+			--navy: #0b0f0f;
+			--teal: #25b8a7;
+			--white: #fff;
+		}
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body { margin: 0; color: #edf7f5; background: var(--navy) url("assets/Webbgrd1.png") center / cover fixed; font-family: "Segoe UI", Arial, sans-serif; line-height: 1.6; }
+		a { color: inherit; }
+		.topbar { position: sticky; top: 0; z-index: 10; background: rgba(4,12,14,.94); border-bottom: 1px solid rgba(37,184,167,.28); backdrop-filter: blur(12px); }
+		.nav-wrap { width: min(1160px, calc(100% - 48px)); min-height: 78px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+		.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
+		.brand-logo { display: block; width: 66px; height: 54px; flex: 0 0 66px; object-fit: contain; }
+		.brand-name { color: var(--white); font-size: 15px; font-weight: 800; line-height: 1.15; letter-spacing: .01em; }
+		.brand-name span { display: block; margin-top: 4px; color: #b7cac6; font-size: 10px; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
+		.nav-links { display: flex; align-items: center; gap: 22px; margin: 0; padding: 0; list-style: none; }
+		.nav-links a { color: #d5e3e0; font-size: 13px; font-weight: 650; text-decoration: none; white-space: nowrap; transition: color .2s; }
+		.nav-links a:hover, .nav-links a:focus-visible, .nav-links .current { color: var(--teal); }
+		.nav-links .portal-link { padding: 10px 15px; color: var(--navy); background: var(--teal); border-radius: 7px; }
+		main { width: min(1060px, calc(100% - 48px)); margin: auto; padding: 64px 0 80px; }
+		.intro { max-width: 760px; margin: 0 auto 42px; text-align: center; }
+		.eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--teal); font-size: 12px; font-weight: 750; letter-spacing: .15em; text-transform: uppercase; }
+		.eyebrow::before { width: 24px; height: 2px; content: ""; background: currentColor; }
+		h1, h2, h3 { color: var(--white); line-height: 1.2; }
+		h1 { margin: 12px 0; font-size: clamp(36px, 5vw, 54px); letter-spacing: -.035em; }
+		.intro p { margin: 0; color: #c5d6d3; font-size: 17px; }
+		.skill-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+		.skill-card { padding: 26px; border: 1px solid rgba(37,184,167,.3); border-radius: 14px; background: rgba(4,12,14,.84); box-shadow: 0 18px 44px rgba(0,0,0,.2); }
+		.skill-card h2 { display: flex; align-items: center; gap: 12px; margin: 0 0 20px; font-size: 21px; }
+		.skill-icon { width: 40px; height: 40px; display: grid; flex: 0 0 40px; place-items: center; border-radius: 11px; color: var(--navy); background: var(--teal); font-size: 18px; font-weight: 800; }
+		.skill-list { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+		.skill-list li { padding-bottom: 13px; border-bottom: 1px solid rgba(255,255,255,.1); }
+		.skill-list li:last-child { padding-bottom: 0; border-bottom: 0; }
+		.skill-name { display: block; color: var(--white); font-size: 15px; font-weight: 700; }
+		.skill-detail { display: block; margin-top: 3px; color: #bfcfcd; font-size: 13px; }
+		.skill-list ul { display: flex; flex-wrap: wrap; gap: 7px; margin: 9px 0 0; padding: 0; list-style: none; }
+		.skill-list ul li { padding: 4px 9px; border: 1px solid rgba(37,184,167,.23); border-radius: 5px; color: #d5e3e0; background: rgba(37,184,167,.07); font-size: 12px; }
+		.projects { margin-top: 22px; padding: clamp(24px, 4vw, 34px); border: 1px solid rgba(37,184,167,.3); border-radius: 14px; background: rgba(4,12,14,.86); }
+		.projects h2 { margin: 0 0 8px; font-size: 24px; }
+		.projects > p { margin: 0 0 20px; color: #bfcfcd; }
+		.project-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+		.project-link { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 68px; padding: 14px 18px; border: 1px solid rgba(37,184,167,.26); border-radius: 9px; color: var(--white); background: rgba(255,255,255,.035); font-weight: 700; text-decoration: none; }
+		.project-link:hover, .project-link:focus-visible { border-color: var(--teal); background: rgba(37,184,167,.08); }
+		.project-link span:last-child { color: var(--teal); font-size: 20px; }
+		.ai-note { margin-top: 22px; padding: 20px 22px; border-left: 3px solid var(--teal); border-radius: 0 9px 9px 0; background: rgba(4,12,14,.8); }
+		.ai-note h2 { margin: 0 0 6px; font-size: 18px; }
+		.ai-note p { margin: 0; color: #c5d6d3; font-size: 14px; }
+		.contact-cta { margin-top: 30px; text-align: center; }
+		.contact-cta p { margin: 0 0 14px; color: #c5d6d3; }
+		.button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 9px; padding: 0 20px; border-radius: 7px; color: var(--navy); background: var(--teal); font-size: 14px; font-weight: 750; text-decoration: none; transition: transform .2s, background .2s; }
+		.button:hover, .button:focus-visible { background: #70d5c7; transform: translateY(-2px); }
+		footer { padding: 24px; color: #c5d2d8; background: rgba(4,12,14,.94); border-top: 1px solid rgba(37,184,167,.22); }
+		.footer-inner { width: min(1160px, 100%); margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 18px; font-size: 12px; }
+		.footer-inner p { margin: 0; }
+		.footer-inner a { color: var(--white); text-decoration: none; }
+		@media (max-width: 980px) {
+			.nav-wrap { width: min(100% - 32px, 1160px); flex-wrap: wrap; padding: 12px 0; }
+			.nav-links { order: 2; width: 100%; justify-content: center; gap: 18px; overflow-x: auto; padding: 3px 0; }
+			.nav-links a { font-size: 12px; }
+		}
+		@media (max-width: 700px) {
+			.nav-wrap { gap: 8px; }
+			.nav-links { justify-content: flex-start; gap: 17px; }
+			main { width: min(100% - 40px, 560px); padding: 44px 0 60px; }
+			.intro { margin-bottom: 30px; }
+			.skill-grid, .project-links { grid-template-columns: 1fr; }
+			.skill-card { padding: 22px; }
+			.footer-inner { align-items: flex-start; flex-direction: column; }
+		}
+		@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+	</style>
+</head>
+<body>
+	<header class="topbar">
+		<nav class="nav-wrap" aria-label="Main navigation">
+			<a class="brand" href="index.html#home" aria-label="Wizard Office Services home">
+				<img class="brand-logo" src="assets/WBG1.png" data-logo-theme="dark" data-logo-dark="assets/WBG1.png" data-logo-dark-pride="assets/WBG%20PRIDE.png" data-logo-light="assets/BBG1.png" data-logo-light-pride="assets/BBG%20PRIDE.png" alt="">
+				<span class="brand-name">Wizard Office Services<span>Business support, made simple</span></span>
+			</a>
+			<ul class="nav-links">
+				<li><a href="index.html#home">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="contact.html">Contact</a></li>
+				<li><a href="services.html">Services</a></li>
+				<li><a href="news.html">Latest News</a></li>
+				<li><a class="portal-link" href="client.html">Client Portal</a></li>
+				<li><a class="current" href="resources.html" aria-current="page">Resources</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<section class="intro" aria-labelledby="resources-title">
+			<span class="eyebrow">Knowledge behind the work</span>
+			<h1 id="resources-title">The skills to back up our services</h1>
+			<p>Experience across productivity tools, business systems, and technology helps us support the everyday needs of small businesses.</p>
+		</section>
+
+		<div class="skill-grid">
+			<section class="skill-card" aria-labelledby="microsoft-title">
+				<h2 id="microsoft-title"><span class="skill-icon" aria-hidden="true">M</span>Microsoft products</h2>
+				<ul class="skill-list">
+					<li>
+						<span class="skill-name">Office Suite</span>
+						<span class="skill-detail">High proficiency</span>
+						<ul><li>Word</li><li>Excel</li><li>PowerPoint</li></ul>
+					</li>
+					<li><span class="skill-name">PowerApps</span><span class="skill-detail">High proficiency</span></li>
+					<li><span class="skill-name">SharePoint</span><span class="skill-detail">High proficiency</span></li>
+					<li><span class="skill-name">Microsoft Organizations and Azure</span><span class="skill-detail">Working knowledge</span></li>
+				</ul>
+			</section>
+
+			<section class="skill-card" aria-labelledby="business-systems-title">
+				<h2 id="business-systems-title"><span class="skill-icon" aria-hidden="true">▦</span>Business systems</h2>
+				<ul class="skill-list">
+					<li><span class="skill-name">SAP</span><span class="skill-detail">High proficiency</span></li>
+					<li><span class="skill-name">Inventory software, including Deposco</span><span class="skill-detail">High proficiency</span></li>
+					<li><span class="skill-name">Salesforce and Oracle</span><span class="skill-detail">Growing knowledge in sales, reporting, and inventory</span></li>
+				</ul>
+			</section>
+
+			<section class="skill-card" aria-labelledby="web-tech-title">
+				<h2 id="web-tech-title"><span class="skill-icon" aria-hidden="true">⌘</span>Web and technology</h2>
+				<ul class="skill-list">
+					<li><span class="skill-name">Website and domain management</span><span class="skill-detail">Growing knowledge</span></li>
+					<li><span class="skill-name">Discord bot creation and management</span><span class="skill-detail">See project examples below</span></li>
+				</ul>
+			</section>
+
+			<section class="skill-card" aria-labelledby="ai-title">
+				<h2 id="ai-title"><span class="skill-icon" aria-hidden="true">✦</span>AI in work and code</h2>
+				<ul class="skill-list">
+					<li><span class="skill-name">AI tools</span><span class="skill-detail">Used in some work and code projects. You may request that AI not be used for your work.</span></li>
+				</ul>
+			</section>
+		</div>
+
+		<section class="projects" aria-labelledby="projects-title">
+			<h2 id="projects-title">Discord bot projects</h2>
+			<p>Explore examples of bots created and managed by Dillon.</p>
+			<div class="project-links">
+				<a class="project-link" href="https://karuchan88.github.io/alliance-manager-bot/English/index.html" target="_blank" rel="noopener noreferrer">
+					<span>Alliance Manager</span><span aria-hidden="true">↗</span>
+				</a>
+				<a class="project-link" href="https://karuchan88.github.io/KC-Server-Manager/" target="_blank" rel="noopener noreferrer">
+					<span>Server Manager</span><span aria-hidden="true">↗</span>
+				</a>
+			</div>
+		</section>
+
+		<div class="contact-cta">
+			<p>Have a question about how these skills can support your business?</p>
+			<a class="button" href="contact.html">Contact us <span aria-hidden="true">→</span></a>
+		</div>
+	</main>
+
+	<footer>
+		<div class="footer-inner">
+			<p>© 2025 Wizard Office Services. All rights reserved.</p>
+			<p>Supporting small businesses in Billings and the surrounding areas.</p>
+			<a href="index.html#home">Back to home ↑</a>
+		</div>
+	</footer>
+<script src="assets/logo-theme.js"></script>
+</body>
+</html>
