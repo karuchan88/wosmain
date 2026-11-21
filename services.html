@@ -1,184 +1,112 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="theme-color" content="#0b0f0f">
-	<meta name="description" content="Explore Wizard Office Services' administrative, shipping, basic IT, and upcoming bookkeeping services in Billings.">
-	<title>Services | Wizard Office Services</title>
-	<style>
-		:root {
-			--navy: #0b0f0f;
-			--teal: #25b8a7;
-			--white: #fff;
-		}
-		* { box-sizing: border-box; }
-		html { scroll-behavior: smooth; }
-		body { margin: 0; color: #edf7f5; background: var(--navy) url("assets/webopt1.png") center / cover fixed; font-family: "Segoe UI", Arial, sans-serif; line-height: 1.6; }
-		a { color: inherit; }
-		.topbar { position: sticky; top: 0; z-index: 10; background: rgba(4,12,14,.94); border-bottom: 1px solid rgba(37,184,167,.28); backdrop-filter: blur(12px); }
-		.nav-wrap { width: min(1160px, calc(100% - 48px)); min-height: 78px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-		.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
-		.brand-logo { display: block; width: 66px; height: 54px; flex: 0 0 66px; object-fit: contain; }
-		.brand-name { color: var(--white); font-size: 15px; font-weight: 800; line-height: 1.15; letter-spacing: .01em; }
-		.brand-name span { display: block; margin-top: 4px; color: #b7cac6; font-size: 10px; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
-		.nav-links { display: flex; align-items: center; gap: 22px; margin: 0; padding: 0; list-style: none; }
-		.nav-links a { color: #d5e3e0; font-size: 13px; font-weight: 650; text-decoration: none; white-space: nowrap; transition: color .2s; }
-		.nav-links a:hover, .nav-links a:focus-visible, .nav-links .current { color: var(--teal); }
-		.nav-links .portal-link { padding: 10px 15px; color: var(--navy); background: var(--teal); border-radius: 7px; }
-		main { width: min(1060px, calc(100% - 48px)); margin: auto; padding: 64px 0 80px; }
-		.intro { max-width: 760px; margin: 0 auto 42px; text-align: center; }
-		.eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--teal); font-size: 12px; font-weight: 750; letter-spacing: .15em; text-transform: uppercase; }
-		.eyebrow::before { width: 24px; height: 2px; content: ""; background: currentColor; }
-		h1, h2, h3 { color: var(--white); line-height: 1.2; }
-		h1 { margin: 12px 0; font-size: clamp(36px, 5vw, 54px); letter-spacing: -.035em; }
-		.intro p { margin: 0; color: #c5d6d3; font-size: 17px; }
-		.category-list { display: grid; gap: 20px; }
-		.category { padding: clamp(24px, 4vw, 38px); border: 1px solid rgba(37,184,167,.3); border-radius: 16px; background: rgba(4,12,14,.84); box-shadow: 0 20px 50px rgba(0,0,0,.2); }
-		.category-header { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid rgba(37,184,167,.24); }
-		.category-icon { width: 46px; height: 46px; display: grid; flex: 0 0 46px; place-items: center; border-radius: 12px; color: var(--navy); background: var(--teal); font-size: 21px; font-weight: 800; }
-		h2 { margin: 0; font-size: clamp(22px, 3vw, 28px); }
-		.service-items { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-		.service-item { padding: 18px; border: 1px solid rgba(255,255,255,.1); border-radius: 10px; background: rgba(255,255,255,.035); }
-		.service-item h3 { margin: 0 0 8px; color: var(--teal); font-size: 16px; }
-		.service-item p { margin: 0; color: #c5d6d3; font-size: 14px; }
-		.category-description { margin: -8px 0 20px; color: #c5d6d3; }
-		.availability { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; padding: 7px 11px; border-radius: 6px; color: var(--teal); background: rgba(37,184,167,.1); font-size: 12px; font-weight: 750; text-transform: uppercase; letter-spacing: .06em; }
-		.policy { margin-top: 24px; padding: 24px; border-left: 3px solid var(--teal); border-radius: 0 10px 10px 0; background: rgba(4,12,14,.8); }
-		.policy h2 { margin-bottom: 8px; font-size: 20px; }
-		.policy p { margin: 0; color: #c5d6d3; font-size: 14px; }
-		.policy p + p { margin-top: 16px; }
-		.policy strong { color: var(--white); }
-		.contact-cta { margin-top: 30px; text-align: center; }
-		.contact-cta p { margin: 0 0 14px; color: #c5d6d3; }
-		.button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 9px; padding: 0 20px; border-radius: 7px; color: var(--navy); background: var(--teal); font-size: 14px; font-weight: 750; text-decoration: none; transition: transform .2s, background .2s; }
-		.button:hover, .button:focus-visible { background: #70d5c7; transform: translateY(-2px); }
-		footer { padding: 24px; color: #c5d2d8; background: rgba(4,12,14,.94); border-top: 1px solid rgba(37,184,167,.22); }
-		.footer-inner { width: min(1160px, 100%); margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 18px; font-size: 12px; }
-		.footer-inner p { margin: 0; }
-		.footer-inner a { color: var(--white); text-decoration: none; }
-		@media (max-width: 980px) {
-			.nav-wrap { width: min(100% - 32px, 1160px); flex-wrap: wrap; padding: 12px 0; }
-			.nav-links { order: 2; width: 100%; justify-content: center; gap: 18px; overflow-x: auto; padding: 3px 0; }
-			.nav-links a { font-size: 12px; }
-		}
-		@media (max-width: 700px) {
-			.nav-wrap { gap: 8px; }
-			.nav-links { justify-content: flex-start; gap: 17px; }
-			main { width: min(100% - 40px, 560px); padding: 44px 0 60px; }
-			.intro { margin-bottom: 30px; }
-			.service-items { grid-template-columns: 1fr; gap: 12px; }
-			.category { padding: 22px; }
-			.footer-inner { align-items: flex-start; flex-direction: column; }
-		}
-		@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
-	</style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#0b0f0f" name="theme-color"/>
+<meta content="Explore Wizard Office Services' administrative, shipping, basic IT, and upcoming bookkeeping services in Billings." name="description"/>
+<title>Services | Wizard Office Services</title>
+<link href="assets/shared.css" rel="stylesheet"/><link href="assets/services.css" rel="stylesheet"/>
 </head>
 <body>
-	<header class="topbar">
-		<nav class="nav-wrap" aria-label="Main navigation">
-			<a class="brand" href="index.html#home" aria-label="Wizard Office Services home">
-				<img class="brand-logo" src="assets/WBG1.png" data-logo-theme="dark" data-logo-dark="assets/WBG1.png" data-logo-dark-pride="assets/WBG%20PRIDE.png" data-logo-light="assets/BBG1.png" data-logo-light-pride="assets/BBG%20PRIDE.png" alt="">
-				<span class="brand-name">Wizard Office Services<span>Business support, made simple</span></span>
-			</a>
-			<ul class="nav-links">
-				<li><a href="index.html#home">Home</a></li>
-				<li><a href="about.html">About</a></li>
-				<li><a href="contact.html">Contact</a></li>
-				<li><a class="current" href="services.html" aria-current="page">Services</a></li>
-				<li><a href="news.html">Latest News</a></li>
-				<li><a class="portal-link" href="client.html">Client Portal</a></li>
-				<li><a href="resources.html">Resources</a></li>
-			</ul>
-		</nav>
-	</header>
-
-	<main>
-		<section class="intro" aria-labelledby="services-title">
-			<span class="eyebrow">Practical help for your business</span>
-			<h1 id="services-title">Our services</h1>
-			<p>Flexible office, shipping, and basic technology support for small businesses. Service costs are discussed and agreed upon before work begins.</p>
-		</section>
-
-		<div class="category-list">
-			<section class="category" aria-labelledby="administrative-title">
-				<div class="category-header">
-					<span class="category-icon" aria-hidden="true">▤</span>
-					<h2 id="administrative-title">Office Administrative Services</h2>
-				</div>
-				<div class="service-items">
-					<article class="service-item">
-						<h3>General Labor</h3>
-						<p>Standard services such as organization, filing, or other office tasks are billed at a contracted rate.</p>
-					</article>
-					<article class="service-item">
-						<h3>Additional Services</h3>
-						<p>Additional tasks, such as preparing letters, are billed at a broken-down cost based on materials purchased and used.</p>
-					</article>
-					<article class="service-item">
-						<h3>Shipping Services</h3>
-						<p>We now have a label printer for shipping. If you need something like an account review book sent to your client, we can prepare it and mail it directly, cutting out the middle step. Packaging fees may apply. Shipping fees are billed directly back to the client with no upcharge.</p>
-					</article>
-				</div>
-			</section>
-
-			<section class="category" aria-labelledby="it-title">
-				<div class="category-header">
-					<span class="category-icon" aria-hidden="true">⌘</span>
-					<h2 id="it-title">Basic IT Services</h2>
-				</div>
-				<p class="category-description">Help with connection, software, or system errors on computers, tablets, printers, or mobile devices.</p>
-				<div class="service-items">
-					<article class="service-item">
-						<h3>Hourly Rate</h3>
-						<p>If a problem takes more than two hours to resolve, an hourly rate applies.</p>
-					</article>
-					<article class="service-item">
-						<h3>Flat Rate</h3>
-						<p>A flat rate applies to problems solved in under two hours or that cannot be fixed.</p>
-					</article>
-					<article class="service-item">
-						<h3>House or Business Call</h3>
-						<p>House calls are available. A fuel surcharge may apply in addition to the service rate, depending on travel time to the location.</p>
-					</article>
-				</div>
-			</section>
-
-			<section class="category" aria-labelledby="bookkeeping-title">
-				<div class="category-header">
-					<span class="category-icon" aria-hidden="true">◷</span>
-					<h2 id="bookkeeping-title">Bookkeeping Services</h2>
-				</div>
-				<p class="category-description">Bookkeeping is not currently available. It will be added after training and certification are completed.</p>
-				<div class="service-items">
-					<article class="service-item">
-						<h3>Hourly Rate</h3>
-						<p>The hourly rate applies to services needed. Hours per week and monthly rates are negotiable.</p>
-					</article>
-				</div>
-				<span class="availability">Coming soon</span>
-			</section>
-		</div>
-
-		<aside class="policy" aria-label="Service policies">
-			<h2>Late fees</h2>
-			<p>A $20 late fee will be applied for every month a payment remains unpaid past its listed due date.</p>
-			<p><strong>Disclaimer:</strong> If a task requested of Wizard Office Services creates a legal situation or conflict of interest, work will stop immediately and any signed contracts will be terminated.</p>
-		</aside>
-
-		<div class="contact-cta">
-			<p>Have questions or want to discuss a service?</p>
-			<a class="button" href="contact.html">Contact us <span aria-hidden="true">→</span></a>
-		</div>
-	</main>
-
-	<footer>
-		<div class="footer-inner">
-			<p>© 2026 Wizard Office Services. All rights reserved.</p>
-			<p>Supporting small businesses in Billings and the surrounding areas.</p>
-			<a href="index.html#home">Back to home ↑</a>
-		</div>
-	</footer>
+<header class="topbar">
+<nav aria-label="Main navigation" class="nav-wrap">
+<a aria-label="Wizard Office Services home" class="brand" href="index.html#home">
+<img alt="" class="brand-logo" data-logo-dark="assets/WBG1.png" data-logo-dark-pride="assets/WBG%20PRIDE.png" data-logo-light="assets/BBG1.png" data-logo-light-pride="assets/BBG%20PRIDE.png" data-logo-theme="dark" src="assets/WBG1.png"/>
+<span class="brand-name">Wizard Office Services<span>Business support, made simple</span></span>
+</a>
+<button aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation menu" class="menu-toggle" type="button"><span aria-hidden="true" class="menu-line"></span><span aria-hidden="true" class="menu-line"></span><span aria-hidden="true" class="menu-line"></span></button><ul class="nav-links" id="primary-navigation">
+<li><a href="index.html#home">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a aria-current="page" class="current" href="services.html">Services</a></li>
+<li><a href="news.html">Latest News</a></li>
+<li><a class="portal-link" href="client.html">Client Portal</a></li>
+<li><a href="resources.html">Resources</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<section aria-labelledby="services-title" class="intro">
+<span class="eyebrow">Practical help for your business</span>
+<h1 id="services-title">Our services</h1>
+<p>Flexible office, shipping, and basic technology support for small businesses. Service costs are discussed and agreed upon before work begins.</p>
+</section>
+<div class="category-list">
+<section aria-labelledby="administrative-title" class="category">
+<div class="category-header">
+<span aria-hidden="true" class="category-icon">▤</span>
+<h2 id="administrative-title">Office Administrative Services</h2>
+</div>
+<div class="service-items">
+<article class="service-item">
+<h3>General Labor</h3>
+<p>Standard services such as organization, filing, or other office tasks are billed at a contracted rate.</p>
+</article>
+<article class="service-item">
+<h3>Additional Services</h3>
+<p>Additional tasks, such as preparing letters, are billed at a broken-down cost based on materials purchased and used.</p>
+</article>
+<article class="service-item">
+<h3>Shipping Services</h3>
+<p>We now have a label printer for shipping. If you need something like an account review book sent to your client, we can prepare it and mail it directly, cutting out the middle step. Packaging fees may apply. Shipping fees are billed directly back to the client with no upcharge.</p>
+</article>
+</div>
+</section>
+<section aria-labelledby="it-title" class="category">
+<div class="category-header">
+<span aria-hidden="true" class="category-icon">⌘</span>
+<h2 id="it-title">Basic IT Services</h2>
+</div>
+<p class="category-description">Help with connection, software, or system errors on computers, tablets, printers, or mobile devices.</p>
+<div class="service-items">
+<article class="service-item">
+<h3>Hourly Rate</h3>
+<p>If a problem takes more than two hours to resolve, an hourly rate applies.</p>
+</article>
+<article class="service-item">
+<h3>Flat Rate</h3>
+<p>A flat rate applies to problems solved in under two hours or that cannot be fixed.</p>
+</article>
+<article class="service-item">
+<h3>House or Business Call</h3>
+<p>House calls are available. A fuel surcharge may apply in addition to the service rate, depending on travel time to the location.</p>
+</article>
+</div>
+</section>
+<section aria-labelledby="bookkeeping-title" class="category">
+<div class="category-header">
+<span aria-hidden="true" class="category-icon">◷</span>
+<h2 id="bookkeeping-title">Bookkeeping Services</h2>
+</div>
+<p class="category-description">Bookkeeping is not currently available. It will be added after training and certification are completed.</p>
+<div class="service-items">
+<article class="service-item">
+<h3>Hourly Rate</h3>
+<p>The hourly rate applies to services needed. Hours per week and monthly rates are negotiable.</p>
+</article>
+</div>
+<span class="availability">Coming soon</span>
+</section>
+</div>
+<aside aria-label="Service policies" class="policy">
+<h2>Late fees</h2>
+<p>A $20 late fee will be applied for every month a payment remains unpaid past its listed due date.</p>
+<p><strong>Disclaimer:</strong> If a task requested of Wizard Office Services creates a legal situation or conflict of interest, work will stop immediately and any signed contracts will be terminated.</p>
+</aside>
+<div class="contact-cta">
+<p>Have questions or want to discuss a service?</p>
+<a class="button" href="contact.html">Contact us <span aria-hidden="true">→</span></a>
+</div>
+</main>
+<footer>
+<div class="footer-inner">
+<p>© 2026 Wizard Office Services. All rights reserved.</p>
+<p>Supporting small businesses in Billings and the surrounding areas.</p>
+<a href="index.html#home">Back to home ↑</a>
+</div>
+</footer>
 <script src="assets/logo-theme.js"></script>
-</body>
+<script defer="True" src="assets/navigation.js"></script></body>
 </html>

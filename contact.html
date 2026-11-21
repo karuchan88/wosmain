@@ -1,153 +1,80 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="theme-color" content="#0b0f0f">
-	<meta name="description" content="Contact Wizard Office Services in Billings to discuss administrative and basic IT support. Meetings are by appointment.">
-	<title>Contact | Wizard Office Services</title>
-	<style>
-		:root {
-			--navy: #0b0f0f;
-			--teal: #25b8a7;
-			--white: #fff;
-		}
-		* { box-sizing: border-box; }
-		html { scroll-behavior: smooth; }
-		body { margin: 0; color: #edf7f5; background: var(--navy) url("assets/Webbgrd2.png") center / cover fixed; font-family: "Segoe UI", Arial, sans-serif; line-height: 1.6; }
-		a { color: inherit; }
-		.topbar { position: sticky; top: 0; z-index: 10; background: rgba(4,12,14,.94); border-bottom: 1px solid rgba(37,184,167,.28); backdrop-filter: blur(12px); }
-		.nav-wrap { width: min(1160px, calc(100% - 48px)); min-height: 78px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-		.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
-		.brand-logo { display: block; width: 66px; height: 54px; flex: 0 0 66px; object-fit: contain; }
-		.brand-name { color: var(--white); font-size: 15px; font-weight: 800; line-height: 1.15; letter-spacing: .01em; }
-		.brand-name span { display: block; margin-top: 4px; color: #b7cac6; font-size: 10px; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
-		.nav-links { display: flex; align-items: center; gap: 22px; margin: 0; padding: 0; list-style: none; }
-		.nav-links a { color: #d5e3e0; font-size: 13px; font-weight: 650; text-decoration: none; white-space: nowrap; transition: color .2s; }
-		.nav-links a:hover, .nav-links a:focus-visible, .nav-links .current { color: var(--teal); }
-		.nav-links .portal-link { padding: 10px 15px; color: var(--navy); background: var(--teal); border-radius: 7px; }
-		main { width: min(1060px, calc(100% - 48px)); margin: auto; padding: 72px 0 84px; }
-		.intro { max-width: 760px; margin: 0 auto 34px; text-align: center; }
-		.eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--teal); font-size: 12px; font-weight: 750; letter-spacing: .15em; text-transform: uppercase; }
-		.eyebrow::before { width: 24px; height: 2px; content: ""; background: currentColor; }
-		h1, h2 { color: var(--white); line-height: 1.15; letter-spacing: -.035em; }
-		h1 { margin: 12px 0 14px; font-size: clamp(36px, 5vw, 54px); }
-		.intro > p { margin: 0; color: #d0dfdc; font-size: 17px; }
-		.contact-panel { display: grid; grid-template-columns: 1fr .85fr; overflow: hidden; border: 1px solid rgba(37,184,167,.34); border-radius: 18px; background: rgba(4,12,14,.82); box-shadow: 0 24px 60px rgba(0,0,0,.28); }
-		.contact-details { padding: clamp(24px, 5vw, 48px); }
-		.contact-details h2, .hours h2 { margin: 0 0 16px; font-size: 24px; }
-		.contact-details > p { margin: 0 0 24px; color: #c5d6d3; }
-		.contact-methods { display: grid; gap: 12px; }
-		.contact-method { display: flex; align-items: center; gap: 14px; min-height: 66px; padding: 12px 16px; border: 1px solid rgba(37,184,167,.25); border-radius: 10px; background: rgba(255,255,255,.035); text-decoration: none; }
-		.contact-method:hover, .contact-method:focus-visible { border-color: var(--teal); background: rgba(37,184,167,.08); }
-		.method-icon { width: 38px; height: 38px; display: grid; flex: 0 0 38px; place-items: center; border-radius: 10px; color: var(--navy); background: var(--teal); font-size: 18px; font-weight: 800; }
-		.method-label { display: block; color: #9eb4b0; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-		.method-value { color: var(--white); font-size: 16px; font-weight: 700; overflow-wrap: anywhere; }
-		.appointment-note { margin: 20px 0 0; padding: 14px 16px; border-left: 3px solid var(--teal); color: #d0dfdc; background: rgba(37,184,167,.08); font-size: 14px; }
-		.hours { padding: clamp(24px, 5vw, 42px); background: rgba(37,184,167,.08); border-left: 1px solid rgba(37,184,167,.22); }
-		.hours h2 { margin-bottom: 8px; }
-		.hours > p { margin: 0 0 20px; color: #c5d6d3; font-size: 14px; }
-		.hours-table { width: 100%; border-collapse: collapse; }
-		.hours-table th, .hours-table td { padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,.1); text-align: left; }
-		.hours-table th { color: var(--white); font-size: 14px; font-weight: 700; }
-		.hours-table td { color: #c5d6d3; font-size: 14px; text-align: right; }
-		.hours-table tr:last-child th, .hours-table tr:last-child td { border-bottom: 0; }
-		.hours-table tr:nth-child(6) th { color: var(--teal); }
-		.work-hours { margin: 22px 0 0; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.14); color: #c5d6d3; font-size: 13px; }
-		.work-hours strong { color: var(--white); }
-		.drop-line { display: flex; width: fit-content; min-height: 50px; align-items: center; justify-content: center; gap: 10px; margin: 30px auto 0; padding: 0 24px; border-radius: 8px; color: var(--navy); background: var(--teal); font-size: 14px; font-weight: 800; text-decoration: none; transition: transform .2s, background .2s; }
-		.drop-line:hover, .drop-line:focus-visible { background: #70d5c7; transform: translateY(-2px); }
-		footer { padding: 24px; color: #c5d2d8; background: rgba(4,12,14,.94); border-top: 1px solid rgba(37,184,167,.22); }
-		.footer-inner { width: min(1160px, 100%); margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 18px; font-size: 12px; }
-		.footer-inner p { margin: 0; }
-		.footer-inner a { color: var(--white); text-decoration: none; }
-		@media (max-width: 980px) {
-			.nav-wrap { width: min(100% - 32px, 1160px); flex-wrap: wrap; padding: 12px 0; }
-			.nav-links { order: 2; width: 100%; justify-content: center; gap: 18px; overflow-x: auto; padding: 3px 0; }
-			.nav-links a { font-size: 12px; }
-		}
-		@media (max-width: 700px) {
-			.nav-wrap { gap: 8px; }
-			.nav-links { justify-content: flex-start; gap: 17px; }
-			main { width: min(100% - 40px, 560px); padding: 48px 0 60px; }
-			.intro { margin-bottom: 26px; }
-			.contact-panel { grid-template-columns: 1fr; }
-			.hours { border-top: 1px solid rgba(37,184,167,.22); border-left: 0; }
-			.footer-inner { align-items: flex-start; flex-direction: column; }
-		}
-		@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
-	</style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#0b0f0f" name="theme-color"/>
+<meta content="Contact Wizard Office Services in Billings to discuss administrative and basic IT support. Meetings are by appointment." name="description"/>
+<title>Contact | Wizard Office Services</title>
+<link href="assets/shared.css" rel="stylesheet"/><link href="assets/contact.css" rel="stylesheet"/>
 </head>
 <body>
-	<header class="topbar">
-		<nav class="nav-wrap" aria-label="Main navigation">
-			<a class="brand" href="index.html#home" aria-label="Wizard Office Services home">
-				<img class="brand-logo" src="assets/WBG1.png" data-logo-theme="dark" data-logo-dark="assets/WBG1.png" data-logo-dark-pride="assets/WBG%20PRIDE.png" data-logo-light="assets/BBG1.png" data-logo-light-pride="assets/BBG%20PRIDE.png" alt="">
-				<span class="brand-name">Wizard Office Services<span>Business support, made simple</span></span>
-			</a>
-			<ul class="nav-links">
-				<li><a href="index.html#home">Home</a></li>
-				<li><a href="about.html">About</a></li>
-				<li><a class="current" href="contact.html" aria-current="page">Contact</a></li>
-				<li><a href="services.html">Services</a></li>
-				<li><a href="news.html">Latest News</a></li>
-				<li><a class="portal-link" href="client.html">Client Portal</a></li>
-				<li><a href="resources.html">Resources</a></li>
-			</ul>
-		</nav>
-	</header>
-
-	<main>
-		<section class="intro" aria-labelledby="contact-title">
-			<span class="eyebrow">Let's connect</span>
-			<h1 id="contact-title">Want to set up a time to chat?</h1>
-			<p>Feel free to send a text, email, or give us a call to discuss what services we can offer to you! Please note that this business is operated out of a personal home at this time, so we ask that you do not show up without an appointment.</p>
-		</section>
-
-		<section class="contact-panel" aria-label="Contact details and hours">
-			<div class="contact-details">
-				<h2>Get in touch</h2>
-				<p>Call or email to talk about the support you need or arrange a meeting.</p>
-				<div class="contact-methods">
-					<a class="contact-method" href="tel:+14066905713">
-						<span class="method-icon" aria-hidden="true">☎</span>
-						<span><span class="method-label">Call or text</span><span class="method-value">406-690-5713</span></span>
-					</a>
-					<a class="contact-method" href="mailto:sales@wizard-services.com">
-						<span class="method-icon" aria-hidden="true">✉</span>
-						<span><span class="method-label">Email</span><span class="method-value">sales@wizard-services.com</span></span>
-					</a>
-				</div>
-				<p class="appointment-note">Please schedule an appointment before visiting. The business currently operates from a personal home.</p>
-			</div>
-			<div class="hours">
-				<h2>Hours</h2>
-				<p>Meetings are available by appointment.</p>
-				<table class="hours-table">
-					<tbody>
-						<tr><th scope="row">Monday</th><td>By appointment</td></tr>
-						<tr><th scope="row">Tuesday</th><td>By appointment</td></tr>
-						<tr><th scope="row">Wednesday</th><td>By appointment</td></tr>
-						<tr><th scope="row">Thursday</th><td>By appointment</td></tr>
-						<tr><th scope="row">Friday</th><td>By appointment</td></tr>
-						<tr><th scope="row">Saturday</th><td>By appointment</td></tr>
-						<tr><th scope="row">Sunday</th><td>By appointment</td></tr>
-					</tbody>
-				</table>
-				<p class="work-hours">Current “work” hours are <strong>8:00 a.m.–4:30 p.m., Monday through Friday</strong>. Additional work is done outside these hours; scheduled meetings are the preferred method.</p>
-			</div>
-		</section>
-
-		<a class="drop-line" href="mailto:sales@wizard-services.com">Drop us a line <span aria-hidden="true">→</span></a>
-	</main>
-
-	<footer>
-		<div class="footer-inner">
-			<p>© 2026 Wizard Office Services. All rights reserved.</p>
-			<p>Supporting small businesses in Billings and the surrounding areas.</p>
-			<a href="index.html#home">Back to home ↑</a>
-		</div>
-	</footer>
+<header class="topbar">
+<nav aria-label="Main navigation" class="nav-wrap">
+<a aria-label="Wizard Office Services home" class="brand" href="index.html#home">
+<img alt="" class="brand-logo" data-logo-dark="assets/WBG1.png" data-logo-dark-pride="assets/WBG%20PRIDE.png" data-logo-light="assets/BBG1.png" data-logo-light-pride="assets/BBG%20PRIDE.png" data-logo-theme="dark" src="assets/WBG1.png"/>
+<span class="brand-name">Wizard Office Services<span>Business support, made simple</span></span>
+</a>
+<button aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation menu" class="menu-toggle" type="button"><span aria-hidden="true" class="menu-line"></span><span aria-hidden="true" class="menu-line"></span><span aria-hidden="true" class="menu-line"></span></button><ul class="nav-links" id="primary-navigation">
+<li><a href="index.html#home">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a aria-current="page" class="current" href="contact.html">Contact</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="news.html">Latest News</a></li>
+<li><a class="portal-link" href="client.html">Client Portal</a></li>
+<li><a href="resources.html">Resources</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<section aria-labelledby="contact-title" class="intro">
+<span class="eyebrow">Let's connect</span>
+<h1 id="contact-title">Want to set up a time to chat?</h1>
+<p>Feel free to send a text, email, or give us a call to discuss what services we can offer to you! Please note that this business is operated out of a personal home at this time, so we ask that you do not show up without an appointment.</p>
+</section>
+<section aria-label="Contact details and hours" class="contact-panel">
+<div class="contact-details">
+<h2>Get in touch</h2>
+<p>Call or email to talk about the support you need or arrange a meeting.</p>
+<div class="contact-methods">
+<a class="contact-method" href="tel:+14066905713">
+<span aria-hidden="true" class="method-icon">☎</span>
+<span><span class="method-label">Call or text</span><span class="method-value">406-690-5713</span></span>
+</a>
+<a class="contact-method" href="mailto:sales@wizard-services.com">
+<span aria-hidden="true" class="method-icon">✉</span>
+<span><span class="method-label">Email</span><span class="method-value">sales@wizard-services.com</span></span>
+</a>
+</div>
+<p class="appointment-note">Please schedule an appointment before visiting. The business currently operates from a personal home.</p>
+</div>
+<div class="hours">
+<h2>Hours</h2>
+<p>Meetings are available by appointment.</p>
+<table class="hours-table">
+<tbody>
+<tr><th scope="row">Monday</th><td>By appointment</td></tr>
+<tr><th scope="row">Tuesday</th><td>By appointment</td></tr>
+<tr><th scope="row">Wednesday</th><td>By appointment</td></tr>
+<tr><th scope="row">Thursday</th><td>By appointment</td></tr>
+<tr><th scope="row">Friday</th><td>By appointment</td></tr>
+<tr><th scope="row">Saturday</th><td>By appointment</td></tr>
+<tr><th scope="row">Sunday</th><td>By appointment</td></tr>
+</tbody>
+</table>
+<p class="work-hours">Current “work” hours are <strong>8:00 a.m.–4:30 p.m., Monday through Friday</strong>. Additional work is done outside these hours; scheduled meetings are the preferred method.</p>
+</div>
+</section>
+<a class="drop-line" href="mailto:sales@wizard-services.com">Drop us a line <span aria-hidden="true">→</span></a>
+</main>
+<footer>
+<div class="footer-inner">
+<p>© 2026 Wizard Office Services. All rights reserved.</p>
+<p>Supporting small businesses in Billings and the surrounding areas.</p>
+<a href="index.html#home">Back to home ↑</a>
+</div>
+</footer>
 <script src="assets/logo-theme.js"></script>
-</body>
+<script defer="True" src="assets/navigation.js"></script></body>
 </html>
