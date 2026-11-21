@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#0b0f0f">
+	<meta name="description" content="News, updates, and announcements from Wizard Office Services.">
+	<title>News &amp; Updates | Wizard Office Services</title>
+	<style>
+		:root {
+			--navy: #0b0f0f;
+			--teal: #25b8a7;
+			--white: #fff;
+		}
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+		body { margin: 0; color: #edf7f5; background: var(--navy) url("assets/Webbgrd1.png") center / cover fixed; font-family: "Segoe UI", Arial, sans-serif; line-height: 1.6; }
+		a { color: inherit; }
+		.topbar { position: sticky; top: 0; z-index: 10; background: rgba(4,12,14,.94); border-bottom: 1px solid rgba(37,184,167,.28); backdrop-filter: blur(12px); }
+		.nav-wrap { width: min(1160px, calc(100% - 48px)); min-height: 78px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+		.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
+		.brand-mark { width: 43px; height: 43px; display: grid; place-items: center; border-radius: 13px; color: var(--navy); background: var(--teal); font-size: 24px; font-weight: 800; }
+		.brand-name { color: var(--white); font-size: 15px; font-weight: 800; line-height: 1.15; letter-spacing: .01em; }
+		.brand-name span { display: block; margin-top: 4px; color: #b7cac6; font-size: 10px; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
+		.nav-links { display: flex; align-items: center; gap: 22px; margin: 0; padding: 0; list-style: none; }
+		.nav-links a { color: #d5e3e0; font-size: 13px; font-weight: 650; text-decoration: none; white-space: nowrap; transition: color .2s; }
+		.nav-links a:hover, .nav-links a:focus-visible, .nav-links .current { color: var(--teal); }
+		.nav-links .portal-link { padding: 10px 15px; color: var(--navy); background: var(--teal); border-radius: 7px; }
+		main { width: min(1060px, calc(100% - 48px)); margin: auto; padding: 64px 0 80px; }
+		.intro { max-width: 760px; margin: 0 auto 42px; text-align: center; }
+		.eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--teal); font-size: 12px; font-weight: 750; letter-spacing: .15em; text-transform: uppercase; }
+		.eyebrow::before { width: 24px; height: 2px; content: ""; background: currentColor; }
+		h1, h2 { color: var(--white); line-height: 1.2; }
+		h1 { margin: 12px 0; font-size: clamp(36px, 5vw, 54px); letter-spacing: -.035em; }
+		.intro p { margin: 0; color: #c5d6d3; font-size: 17px; }
+		.news-list { display: grid; gap: 22px; }
+		.news-post { display: grid; grid-template-columns: minmax(260px, .82fr) 1.18fr; overflow: hidden; border: 1px solid rgba(37,184,167,.32); border-radius: 15px; background: rgba(4,12,14,.86); box-shadow: 0 18px 44px rgba(0,0,0,.24); }
+		.post-image { display: block; width: 100%; height: 100%; min-height: 250px; object-fit: cover; background: rgba(255,255,255,.06); }
+		.post-copy { align-self: center; padding: clamp(22px, 4vw, 36px); }
+		.post-copy time { display: block; margin-bottom: 7px; color: var(--teal); font-size: 13px; font-weight: 700; }
+		.post-copy h2 { margin: 0 0 14px; font-size: clamp(22px, 3vw, 29px); letter-spacing: -.025em; }
+		.post-copy p { margin: 0; color: #c5d6d3; font-size: 15px; }
+		.post-copy p + p { margin-top: 12px; }
+		.post-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; color: var(--teal); font-size: 14px; font-weight: 750; text-decoration: none; }
+		.post-link:hover, .post-link:focus-visible { color: #70d5c7; text-decoration: underline; }
+		.facebook-cta { margin-top: 30px; padding: 28px; text-align: center; border: 1px solid rgba(37,184,167,.3); border-radius: 13px; background: rgba(4,12,14,.82); }
+		.facebook-cta p { margin: 0 0 14px; color: #c5d6d3; }
+		.button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 9px; padding: 0 20px; border-radius: 7px; color: var(--navy); background: var(--teal); font-size: 14px; font-weight: 750; text-decoration: none; transition: transform .2s, background .2s; }
+		.button:hover, .button:focus-visible { background: #70d5c7; transform: translateY(-2px); }
+		footer { padding: 24px; color: #c5d2d8; background: rgba(4,12,14,.94); border-top: 1px solid rgba(37,184,167,.22); }
+		.footer-inner { width: min(1160px, 100%); margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 18px; font-size: 12px; }
+		.footer-inner p { margin: 0; }
+		.footer-inner a { color: var(--white); text-decoration: none; }
+		@media (max-width: 980px) {
+			.nav-wrap { width: min(100% - 32px, 1160px); flex-wrap: wrap; padding: 12px 0; }
+			.nav-links { order: 2; width: 100%; justify-content: center; gap: 18px; overflow-x: auto; padding: 3px 0; }
+			.nav-links a { font-size: 12px; }
+			.news-post { grid-template-columns: minmax(220px, .8fr) 1.2fr; }
+		}
+		@media (max-width: 700px) {
+			.nav-wrap { gap: 8px; }
+			.nav-links { justify-content: flex-start; gap: 17px; }
+			main { width: min(100% - 40px, 560px); padding: 44px 0 60px; }
+			.intro { margin-bottom: 30px; }
+			.news-post { grid-template-columns: 1fr; }
+			.post-image { height: auto; min-height: 0; max-height: 280px; aspect-ratio: 16 / 9; }
+			.post-copy { padding: 22px; }
+			.footer-inner { align-items: flex-start; flex-direction: column; }
+		}
+		@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+	</style>
+</head>
+<body>
+	<header class="topbar">
+		<nav class="nav-wrap" aria-label="Main navigation">
+			<a class="brand" href="index.html#home" aria-label="Wizard Office Services home">
+				<span class="brand-mark" aria-hidden="true">W</span>
+				<span class="brand-name">Wizard Office Services<span>Business support, made simple</span></span>
+			</a>
+			<ul class="nav-links">
+				<li><a href="index.html#home">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="contact.html">Contact</a></li>
+				<li><a href="services.html">Services</a></li>
+				<li><a class="current" href="news.html" aria-current="page">Latest News</a></li>
+				<li><a class="portal-link" href="index.html#client-portal">Client Portal</a></li>
+				<li><a href="resources.html">Resources</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<section class="intro" aria-labelledby="news-title">
+			<span class="eyebrow">From Wizard Office Services</span>
+			<h1 id="news-title">News &amp; updates</h1>
+			<p>Announcements, milestones, and service updates from Wizard Office Services.</p>
+		</section>
+
+		<div class="news-list">
+			<article class="news-post" id="software-upgrades">
+				<img class="post-image" src="assets/news-software.jpg" alt="Wizard Office Services app showing new bookkeeping features" width="677" height="356">
+				<div class="post-copy">
+					<time datetime="2024-07-04">July 4, 2024</time>
+					<h2>New Software Upgrades!</h2>
+					<p>Very excited for some new additions to the main app that runs it all! With this we will be able to say goodbye to QuickBooks finally! If you're interested in having us run your books like we do for ourselves, let us know!</p>
+				</div>
+			</article>
+
+			<article class="news-post" id="late-night-writing">
+				<img class="post-image" src="assets/news-handbook.jpg" alt="A computer displaying work on a business ethics document and employee handbook" width="676" height="301" loading="lazy">
+				<div class="post-copy">
+					<time datetime="2023-11-23">November 23, 2023</time>
+					<h2>Some Mild Late Night Writing</h2>
+					<p>We are currently working on a Code of Business Ethics and an Employee Handbook in the middle of the night, of course. I am very excited about this step in progress as we move closer to hiring some help and expanding!</p>
+					<p>Due to the nature of our business, we are HIPAA compliant and NDA compliant for any clients as needed per their request and/or by law.</p>
+				</div>
+			</article>
+
+			<article class="news-post" id="shipping-packages">
+				<img class="post-image" src="assets/news-shipping.jpg" alt="Packages ready for shipping" width="676" height="422" loading="lazy">
+				<div class="post-copy">
+					<time datetime="2023-05-01">May 1, 2023</time>
+					<h2>We Are Shipping Packages!</h2>
+					<p>We now have a thermal label printer for the business and are looking to ship for you! Currently we are utilizing the USPS and UPS for their awesome rates. If you need something shipped to a client like a binder, important documents, etc., we can do it!</p>
+					<p>Shipping fees are billed back directly with no upcharge. Packaging fees may apply.</p>
+				</div>
+			</article>
+
+			<article class="news-post" id="facebook">
+				<img class="post-image" src="assets/news-facebook.jpg" alt="Illustration of a connected network of people" width="245" height="141" loading="lazy">
+				<div class="post-copy">
+					<time datetime="2023-01-23">January 23, 2023</time>
+					<h2>We are on Facebook!</h2>
+					<p>Wizard Office Services is on Facebook. Follow the page for business updates and announcements.</p>
+					<a class="post-link" href="https://www.facebook.com/wizardofficeservices" target="_blank" rel="noopener noreferrer">Visit our Facebook page <span aria-hidden="true">↗</span></a>
+				</div>
+			</article>
+		</div>
+
+		<section class="facebook-cta" aria-label="Follow Wizard Office Services">
+			<p>Stay in touch with Wizard Office Services on Facebook.</p>
+			<a class="button" href="https://www.facebook.com/wizardofficeservices" target="_blank" rel="noopener noreferrer">Follow us on Facebook <span aria-hidden="true">↗</span></a>
+		</section>
+	</main>
+
+	<footer>
+		<div class="footer-inner">
+			<p>© 2025 Wizard Office Services. All rights reserved.</p>
+			<p>Supporting small businesses in Billings and the surrounding areas.</p>
+			<a href="index.html#home">Back to home ↑</a>
+		</div>
+	</footer>
+</body>
+</html>
